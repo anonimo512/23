@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<title>IUNES — Solicite seu site</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#040918;--bg2:#0a1535;--blue:#2f6bff;--cyan:#27e6ff;--tx:#f2f6ff;--mu:#a3b4d8;--line:rgba(120,160,255,.22);--glass:rgba(14,26,62,.62);--err:#ff7a8a;--ok:#4dffb0;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+html{background:var(--bg)}
+body{margin:0;min-height:100vh;background:var(--bg);color:var(--tx);font:400 16px/1.55 "IBM Plex Sans",system-ui,sans-serif;overflow-x:hidden}
+body::before,body::after{content:"";position:fixed;z-index:-1;width:60vmax;height:60vmax;border-radius:50%;filter:blur(90px);opacity:.35;pointer-events:none}
+body::before{background:var(--blue);top:-30vmax;left:-20vmax;animation:drift 26s ease-in-out infinite alternate}
+body::after{background:#0aa7c9;bottom:-35vmax;right:-25vmax;animation:drift 32s ease-in-out infinite alternate-reverse}
+@keyframes drift{to{transform:translate(8vmax,6vmax)}}
+.grid{position:fixed;inset:0;z-index:-1;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:56px 56px;opacity:.12;mask-image:radial-gradient(circle at 50% 30%,#000,transparent 70%);-webkit-mask-image:radial-gradient(circle at 50% 30%,#000,transparent 70%)}
+.wrap{max-width:720px;margin:0 auto;padding:20px 18px 56px}
+header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+.logo{font:800 30px/1 Sora,sans-serif;letter-spacing:.14em;display:flex;align-items:center;gap:10px;margin:0}
+.logo i{font-style:normal;color:var(--cyan);letter-spacing:0;font-weight:700;text-shadow:0 0 18px rgba(39,230,255,.6)}
+.prog{margin-bottom:22px}
+.prog small{color:var(--mu);font-size:13px}
+.bar{height:6px;border-radius:9px;background:rgba(120,160,255,.15);margin-top:6px;overflow:hidden}
+.bar b{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--cyan));border-radius:9px;transition:width .6s cubic-bezier(.2,.8,.2,1)}
+.view{animation:inF .5s cubic-bezier(.2,.8,.2,1) both}
+.view.back{animation-name:inB}
+@keyframes inF{from{opacity:0;transform:translateX(44px)}}
+@keyframes inB{from{opacity:0;transform:translateX(-44px)}}
+h1,h2{font:700 clamp(26px,6.4vw,38px)/1.15 Sora,sans-serif;margin:0 0 10px;outline:none;letter-spacing:-.01em}
+h2{font-size:clamp(22px,5.4vw,30px)}
+.sub{color:var(--mu);margin:0 0 24px;max-width:56ch}
+.glass{background:var(--glass);border:1px solid var(--line);border-radius:20px;padding:20px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 20px 50px rgba(0,0,0,.35)}
+.f{margin-bottom:16px}
+.f label{display:block;font-weight:600;font-size:14px;margin-bottom:6px}
+.f label em{font-style:normal;color:var(--mu);font-weight:400}
+.in{position:relative;border-radius:13px;background:rgba(5,12,34,.7);border:1px solid var(--line);transition:border-color .25s,box-shadow .25s}
+.in:focus-within{border-color:var(--cyan);box-shadow:0 0 0 3px rgba(39,230,255,.18),0 0 24px rgba(47,107,255,.35)}
+.in.bad{border-color:var(--err)}
+.in svg{position:absolute;left:14px;top:50%;translate:0 -50%;width:20px;height:20px;stroke:var(--cyan);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.in input{width:100%;background:none;border:0;outline:0;color:var(--tx);font:inherit;padding:14px 14px 14px 46px;min-height:50px}
+.err{display:block;color:var(--err);font-size:13px;min-height:0;margin-top:5px}
+.btn{font:600 16px "IBM Plex Sans",sans-serif;border:0;border-radius:13px;padding:15px 22px;min-height:50px;cursor:pointer;color:#fff;background:linear-gradient(110deg,var(--blue),#17b6e8);box-shadow:0 10px 28px rgba(47,107,255,.4);transition:transform .15s,box-shadow .25s,opacity .25s,filter .25s;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;text-align:center}
+.btn:hover{filter:brightness(1.1);box-shadow:0 12px 34px rgba(39,230,255,.4)}
+.btn:active{transform:scale(.97)}
+.btn:disabled{opacity:.4;cursor:not-allowed;box-shadow:none;filter:none}
+.btn.ghost{background:transparent;border:1px solid var(--line);box-shadow:none;color:var(--tx)}
+.btn.ghost:hover{border-color:var(--cyan);box-shadow:none}
+.row{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+.row .btn:first-child:not(.ghost){flex:1 1 220px}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+.chat{display:flex;gap:12px;align-items:flex-start;margin-bottom:18px}
+.av{flex:none;width:42px;height:42px;border-radius:13px;display:grid;place-items:center;font:700 14px Sora,sans-serif;color:var(--cyan);background:rgba(39,230,255,.1);border:1px solid rgba(39,230,255,.4)}
+.bub{background:var(--glass);border:1px solid var(--line);border-radius:4px 18px 18px 18px;padding:14px 16px;animation:inF .45s .1s both}
+.bub p{margin:0}.bub p+p{margin-top:8px;font-weight:600}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px}
+.card{font:500 15px "IBM Plex Sans",sans-serif;text-align:left;color:var(--tx);background:rgba(8,18,46,.7);border:1px solid var(--line);border-radius:14px;padding:15px 16px 15px 46px;min-height:54px;cursor:pointer;position:relative;transition:border-color .2s,background .2s,transform .15s,box-shadow .2s}
+.card::before{content:"";position:absolute;left:15px;top:50%;translate:0 -50%;width:18px;height:18px;border-radius:50%;border:2px solid var(--mu);transition:.2s}
+.card.multi::before{border-radius:6px}
+.card:hover{border-color:var(--cyan)}
+.card:active{transform:scale(.98)}
+.card[aria-pressed=true]{border-color:var(--cyan);background:rgba(47,107,255,.22);box-shadow:0 0 22px rgba(39,230,255,.2)}
+.card[aria-pressed=true]::before{border-color:var(--cyan);background:var(--cyan);box-shadow:inset 0 0 0 3px #06122e}
+.other{margin-top:12px}
+.other input,textarea{width:100%;background:rgba(5,12,34,.7);border:1px solid var(--line);border-radius:13px;color:var(--tx);font:inherit;padding:13px 14px;outline:0;transition:border-color .25s,box-shadow .25s}
+.other input:focus,textarea:focus{border-color:var(--cyan);box-shadow:0 0 0 3px rgba(39,230,255,.18),0 0 24px rgba(47,107,255,.3)}
+textarea{min-height:190px;resize:vertical;line-height:1.55}
+.cnt{display:flex;justify-content:space-between;color:var(--mu);font-size:13px;margin-top:6px}
+.cnt .over{color:var(--err)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chip{font:500 13px "IBM Plex Sans",sans-serif;color:var(--cyan);background:rgba(39,230,255,.08);border:1px solid rgba(39,230,255,.35);border-radius:99px;padding:8px 13px;cursor:pointer;min-height:36px;transition:background .2s,transform .15s}
+.chip:hover{background:rgba(39,230,255,.18)}.chip:active{transform:scale(.95)}
+.rv{display:grid;gap:10px}
+.rv div.g{display:flex;justify-content:space-between;gap:12px;padding:13px 0;border-bottom:1px solid var(--line)}
+.rv div.g:last-child{border:0}
+.rv dt{color:var(--mu);font-size:13px;margin:0 0 3px}
+.rv dd{margin:0;overflow-wrap:anywhere;white-space:pre-wrap}
+.ed{flex:none;align-self:flex-start;background:none;border:1px solid var(--line);color:var(--cyan);border-radius:9px;padding:6px 11px;font:500 13px "IBM Plex Sans";cursor:pointer;min-height:34px}
+.note{margin-top:16px;padding:13px 15px;border-radius:13px;border:1px solid rgba(39,230,255,.35);background:rgba(39,230,255,.07);font-size:14px}
+.note[hidden]{display:none}
+.ty{text-align:center;position:relative;padding-top:10px}
+.ty .ok{width:96px;height:96px;margin:0 auto 18px;filter:drop-shadow(0 0 22px rgba(39,230,255,.55))}
+.ok circle{fill:none;stroke:var(--cyan);stroke-width:3;stroke-dasharray:290;stroke-dashoffset:290;animation:dr .9s .1s forwards}
+.ok path{fill:none;stroke:var(--ok);stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:60;stroke-dashoffset:60;animation:dr .5s .9s forwards}
+@keyframes dr{to{stroke-dashoffset:0}}
+.ty .sub{margin-inline:auto}
+.ty .row{justify-content:center}
+.pt{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.pt s{position:absolute;bottom:0;width:6px;height:6px;border-radius:50%;background:var(--cyan);box-shadow:0 0 12px var(--cyan);opacity:0;animation:fl 7s linear infinite}
+@keyframes fl{10%{opacity:.9}100%{transform:translateY(-420px);opacity:0}}
+.sp{width:18px;height:18px;border:2px solid #fff4;border-top-color:#fff;border-radius:50%;animation:sp .7s linear infinite}
+@keyframes sp{to{rotate:360deg}}
+.sr{position:absolute;left:-9999px}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.ok circle,.ok path{stroke-dashoffset:0}.pt{display:none}}
+</style>
+</head>
+<body>
+<div class="grid" aria-hidden="true"></div>
+<div class="wrap">
+ <header><p class="logo" aria-label="IUNES"><i aria-hidden="true">&lt;/&gt;</i>IUNES</p></header>
+ <div class="prog" id="prog"><small id="plab"></small><div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" id="pbar"><b id="pfill"></b></div></div>
+ <main id="stage" aria-live="polite"></main>
+</div>
+<script>
+(function(){
+"use strict";
+var WA="5575982149488",KEY="iunes_pedido_v1",MAX=1200,LAST=6;
+var OPT={
+ type:["Site institucional","Loja virtual","Landing page para vendas","Portfólio profissional","Site para restaurante","Site para barbearia ou salão","Outro tipo de projeto"],
+ goal:["Atrair novos clientes","Vender produtos","Apresentar minha empresa","Receber pedidos pelo WhatsApp","Divulgar meus serviços","Outro objetivo"],
+ feat:["Botão de WhatsApp","Formulário de contato","Catálogo de produtos","Sistema de agendamento","Área de login","Animações profissionais","Integração com redes sociais","Checkout e pagamentos online","Outras funcionalidades"],
+ style:["Minimalista e elegante","Tecnológico e futurista","Luxuoso e sofisticado","Colorido e criativo","Moderno e comercial"]
+};
+var SUG=["Galeria de imagens","Apresentação dos serviços","Botão de contato pelo WhatsApp","Página sobre a empresa","Cores azul e preto","Mapa com a localização","Perguntas frequentes","Link para o Instagram"];
+var ICON={user:'<circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/>',bld:'<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h2M13 8h2M9 12h2M13 12h2M10 21v-4h4v4"/>',tel:'<rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/>',mail:'<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/>'};
+var DEF={step:0,name:"",company:"",phone:"",email:"",type:"",typeOther:"",goal:"",goalOther:"",feat:[],featOther:"",style:"",desc:"",pending:false};
+var S=load(),touched={};
+function load(){try{var r=JSON.parse(localStorage.getItem(KEY));if(r&&typeof r==="object"){var o=Object.assign({},DEF,r);if(!Array.isArray(o.feat))o.feat=[];if(o.step>LAST)o.step=LAST;return o}}catch(e){}return Object.assign({},DEF,{feat:[]})}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+function clr(){try{localStorage.removeItem(KEY)}catch(e){}}
+function el(t,c,h){var e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e}
+function $(s,r){return (r||document).querySelector(s)}
+function digits(v){return String(v).replace(/\D/g,"")}
+function fmtPhone(v){var d=digits(v).slice(0,11);if(d.length<3)return d;var a="("+d.slice(0,2)+") ",r=d.slice(2);return d.length>10?a+r.slice(0,5)+"-"+r.slice(5):a+r.slice(0,4)+(r.length>4?"-"+r.slice(4):"")}
+var V={
+ name:function(v){return v.trim().length>=3&&/\S+\s+\S+/.test(v.trim())?"":"Informe seu nome completo (nome e sobrenome)."},
+ company:function(v){return v.trim().length>=2?"":"Informe o nome da empresa ou marca."},
+ phone:function(v){var d=digits(v);if(d.length<10||d.length>11)return "Informe o telefone com DDD, por exemplo (75) 98214-9488.";if(+d.slice(0,2)<11)return "O DDD informado não é válido.";if(d.length===11&&d[2]!=="9")return "Celulares com 11 dígitos começam com 9 depois do DDD.";return ""},
+ email:function(v){return !v.trim()||/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim())?"":"Digite um e-mail válido ou deixe o campo em branco."}
+};
+function step0Valid(){return !V.name(S.name)&&!V.company(S.company)&&!V.phone(S.phone)&&!V.email(S.email)}
+function val(k){var o=k+"Other";return S[k]&&/^Outr/.test(S[k])&&S[o]?"Outro: "+S[o].trim():S[k]}
+function feats(){return S.feat.map(function(f){return f==="Outras funcionalidades"&&S.featOther.trim()?"Outras: "+S.featOther.trim():f})}
+function message(){
+ var L=["NOVO PEDIDO DE PROJETO — IUNES","","DADOS DO CLIENTE","Nome: "+S.name.trim(),"Empresa: "+S.company.trim(),"Telefone: "+S.phone];
+ if(S.email.trim())L.push("E-mail: "+S.email.trim());
+ L.push("","DETALHES DO PROJETO","Tipo de site: "+val("type"),"Objetivo: "+val("goal"),"Estilo visual: "+S.style,"","FUNCIONALIDADES");
+ var f=feats();if(f.length)f.forEach(function(x){L.push("- "+x)});else L.push("Nenhuma selecionada");
+ L.push("","DESCRIÇÃO DO CLIENTE",S.desc.trim());return L.join("\n")}
+function waLink(){return "https://wa.me/"+WA+"?text="+encodeURIComponent(message())}
+function go(n){var d=n>=S.step?1:-1;S.step=n;save();render(d);window.scrollTo({top:0})}
+function nav(v,back,next,label,ok){
+ var r=el("div","row"),b=el("button","btn",label);b.type="button";b.disabled=!ok;b.onclick=next;r.appendChild(b);
+ if(back){var g=el("button","btn ghost","Voltar");g.type="button";g.onclick=back;r.appendChild(g)}
+ v.appendChild(r);return b}
+function chat(v,paras){var c=el("div","chat",'<div class="av" aria-hidden="true">&lt;/&gt;</div>'),b=el("div","bub");paras.forEach(function(p){var e=el("p");e.textContent=p;b.appendChild(e)});c.appendChild(b);v.appendChild(c)}
+function title(v,t,s,tag){var h=el(tag||"h2");h.textContent=t;h.tabIndex=-1;v.appendChild(h);if(s){var p=el("p","sub");p.textContent=s;v.appendChild(p)}}
+
+function step0(v){
+ title(v,"Vamos transformar sua ideia em um site profissional?","Conte-nos sobre seu negócio e dê o primeiro passo para ter uma presença digital de alto nível.","h1");
+ var box=el("form","glass");box.noValidate=true;
+ var defs=[["name","Nome completo","user","text","name","Ex.: Maria da Silva",1],["company","Nome da empresa ou marca","bld","text","organization","Nome do seu negócio",1],["phone","Telefone com DDD","tel","tel","tel","(75) 98214-9488",1],["email","E-mail (opcional nesta etapa)","mail","email","email","voce@empresa.com.br",0]];
+ var btn;
+ function refresh(){btn.disabled=!step0Valid()}
+ defs.forEach(function(d){
+  var k=d[0],w=el("div","f"),id="f_"+k;
+  w.innerHTML='<label for="'+id+'">'+d[1]+(d[6]?"":"")+'</label><div class="in"><svg viewBox="0 0 24 24" aria-hidden="true">'+ICON[d[2]]+'</svg><input id="'+id+'" type="'+d[3]+'" autocomplete="'+d[4]+'" placeholder="'+d[5]+'"'+(k==="phone"?' inputmode="tel"':"")+(k==="name"||k==="company"?' maxlength="80"':' maxlength="120"')+'></div><span class="err" id="e_'+k+'" role="alert"></span>';
+  var inp=$("input",w),wrap=$(".in",w),er=$(".err",w);inp.value=S[k];
+  inp.setAttribute("aria-describedby","e_"+k);if(d[6])inp.required=true;
+  function show(){var m=V[k](S[k]);var vis=touched[k]&&m;er.textContent=vis?m:"";wrap.classList.toggle("bad",!!vis);inp.setAttribute("aria-invalid",vis?"true":"false")}
+  inp.oninput=function(){S[k]=k==="phone"?fmtPhone(inp.value):inp.value;if(k==="phone")inp.value=S[k];if(touched[k])show();save();refresh()};
+  inp.onblur=function(){touched[k]=true;show()};
+  box.appendChild(w)});
+ v.appendChild(box);
+ btn=nav(v,null,function(){defs.forEach(function(d){touched[d[0]]=true});if(step0Valid())go(1);else{var f=defs.filter(function(d){return V[d[0]](S[d[0]])})[0];if(f)$("#f_"+f[0]).focus()}},"Continuar para personalizar meu site",step0Valid());
+ btn.disabled=!step0Valid();
+ box.onsubmit=function(e){e.preventDefault();if(!btn.disabled)btn.click()}}
+
+function choice(key,q,multi,idx){
+ return function(v){
+  var first=S.name.trim().split(/\s+/)[0]||"";
+  var lines=idx===1?["Prazer, "+first+"! Vamos planejar o site ideal para a "+S.company.trim()+".",q]:[q];
+  chat(v,lines);
+  var h=el("h2","sr");h.textContent=q;h.tabIndex=-1;v.insertBefore(h,v.firstChild);
+  var cards=el("div","cards");cards.setAttribute("role","group");cards.setAttribute("aria-label",q);
+  var other=el("div","other"),oi=el("input");oi.type="text";oi.maxLength=120;oi.placeholder="Conte qual é";oi.setAttribute("aria-label","Descreva a opção outro");
+  var ok;
+  function on(o){return multi?S[key].indexOf(o)>-1:S[key]===o}
+  function isOther(o){return /^Outr/.test(o)}
+  function otherOn(){return OPT[key].some(function(o){return isOther(o)&&on(o)})}
+  function sync(){
+   [].forEach.call(cards.children,function(c){c.setAttribute("aria-pressed",on(c.dataset.o)?"true":"false")});
+   var oo=key!=="style"&&otherOn();other.style.display=oo?"block":"none";
+   var need=oo&&!S[key+"Other"].trim();ok.disabled=multi?(!S[key].length&&false)||need:(!S[key]||need);
+   if(key==="feat")ok.disabled=!S.feat.length||need;save()}
+  OPT[key].forEach(function(o){
+   var c=el("button","card"+(multi?" multi":""));c.type="button";c.textContent=o;c.dataset.o=o;
+   c.onclick=function(){
+    if(multi){var i=S[key].indexOf(o);if(i>-1)S[key].splice(i,1);else S[key].push(o)}else S[key]=o;
+    sync();if(otherOn()&&isOther(o)&&on(o))oi.focus()};
+   cards.appendChild(c)});
+  v.appendChild(cards);
+  if(key!=="style"){oi.value=S[key+"Other"];oi.oninput=function(){S[key+"Other"]=oi.value;sync()};other.appendChild(oi);v.appendChild(other)}
+  if(multi){var hint=el("p","sub");hint.style.margin="12px 0 0";hint.style.fontSize="14px";hint.textContent="Você pode escolher mais de uma opção.";v.appendChild(hint)}
+  ok=nav(v,function(){go(idx-1)},function(){go(idx+1)},"Continuar",false);sync()}}
+
+function step5(v){
+ chat(v,["Agora a parte mais importante: quero entender a sua visão."]);
+ title(v,"Descreva o site dos seus sonhos.","Conte como você imagina o projeto, quais páginas deseja, quais cores prefere, quais funcionalidades precisa e qualquer detalhe importante.");
+ var w=el("div","glass"),ta=el("textarea");ta.id="desc";ta.maxLength=MAX;ta.value=S.desc;
+ ta.placeholder="Exemplo: quero um site moderno para minha empresa, com animações profissionais, apresentação dos serviços, galeria de imagens e botão de contato pelo WhatsApp...";
+ ta.setAttribute("aria-label","Descrição do projeto");
+ var c=el("div","cnt",'<span id="hint"></span><span id="cc"></span>');
+ w.appendChild(ta);w.appendChild(c);
+ var chips=el("div","chips");chips.setAttribute("aria-label","Sugestões para adicionar");
+ SUG.forEach(function(s){var b=el("button","chip");b.type="button";b.textContent="+ "+s;b.onclick=function(){var add=(ta.value.trim()?(/[.!?]$/.test(ta.value.trim())?" ":", "):"Quero ")+s.charAt(0).toLowerCase()+s.slice(1);if((ta.value+add).length>MAX)return;ta.value+=add;upd();ta.focus()};chips.appendChild(b)});
+ w.appendChild(chips);v.appendChild(w);
+ var ok=nav(v,function(){go(4)},function(){go(6)},"Revisar meu pedido",false);
+ function upd(){S.desc=ta.value;var n=ta.value.length,t=ta.value.trim().length;$("#cc").textContent=n+" / "+MAX;$("#cc").className=n>=MAX?"over":"";$("#hint").textContent=t<20?"Escreva pelo menos 20 caracteres.":"";ok.disabled=t<20;save()}
+ ta.oninput=upd;upd()}
+
+function step6(v){
+ title(v,"Revise seu pedido","Confira os dados. Você pode corrigir qualquer informação antes de enviar.");
+ var box=el("dl","glass rv");
+ var rows=[["Nome",S.name.trim(),0],["Empresa",S.company.trim(),0],["Telefone",S.phone,0]];
+ if(S.email.trim())rows.push(["E-mail",S.email.trim(),0]);
+ rows.push(["Tipo de site",val("type"),1],["Objetivo principal",val("goal"),2],["Funcionalidades",feats().join("\n")||"Nenhuma selecionada",3],["Estilo visual",S.style,4],["Descrição do projeto",S.desc.trim(),5]);
+ rows.forEach(function(r){var g=el("div","g"),d=el("div");var t=el("dt");t.textContent=r[0];var dd=el("dd");dd.textContent=r[1];d.appendChild(t);d.appendChild(dd);g.appendChild(d);
+  var b=el("button","ed","Editar");b.type="button";b.setAttribute("aria-label","Editar "+r[0]);b.onclick=function(){go(r[2])};g.appendChild(b);box.appendChild(g)});
+ v.appendChild(box);
+ var row=el("div","row"),a=el("a","btn","Enviar meu projeto para a IUNES");a.href=waLink();a.target="_blank";a.rel="noopener noreferrer";
+ var back=el("button","btn ghost","Voltar e editar");back.type="button";back.onclick=function(){go(5)};
+ row.appendChild(a);row.appendChild(back);v.appendChild(row);
+ var note=el("div","note");note.hidden=!S.pending;
+ note.innerHTML="<strong>O WhatsApp deve ter aberto com a mensagem pronta.</strong> Toque em <strong>Enviar</strong> no WhatsApp para concluir. Até lá, a IUNES ainda não recebeu nada. Se não abriu, copie o resumo e envie para o número da IUNES.";
+ var r2=el("div","row"),cp=el("button","btn ghost","Copiar resumo do pedido"),done=el("button","btn ghost","Já toquei em Enviar no WhatsApp");
+ cp.type=done.type="button";
+ cp.onclick=function(){copy(message(),cp)};done.onclick=function(){S.pending=false;go(7)};
+ r2.appendChild(cp);r2.appendChild(done);note.appendChild(r2);v.appendChild(note);
+ a.onclick=function(){S.pending=true;save();note.hidden=false;note.scrollIntoView({behavior:"smooth",block:"nearest"})}}
+
+function copy(t,btn){
+ var o=btn.textContent;
+ function ok(){btn.textContent="Resumo copiado";setTimeout(function(){btn.textContent=o},2200)}
+ function fb(){var x=document.createElement("textarea");x.value=t;x.style.position="fixed";x.style.opacity="0";document.body.appendChild(x);x.select();try{document.execCommand("copy")?ok():btn.textContent="Não foi possível copiar"}catch(e){btn.textContent="Não foi possível copiar"}document.body.removeChild(x)}
+ if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(t).then(ok,fb);else fb()}
+
+function step7(v){
+ var w=el("div","ty");
+ var p=el("div","pt");p.setAttribute("aria-hidden","true");
+ for(var i=0;i<14;i++){var s=document.createElement("s");s.style.left=(5+i*6.8)+"%";s.style.animationDelay=(i*.55)+"s";s.style.animationDuration=(5+i%4)+"s";p.appendChild(s)}
+ w.appendChild(p);
+ w.insertAdjacentHTML("beforeend",'<svg class="ok" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="46"/><path d="M30 52l14 14 27-30"/></svg>');
+ title(w,"Obrigado por escolher a IUNES!",null,"h1");
+ var m=el("p","sub");m.textContent="Suas ideias são importantes para nós. Obrigado por dedicar seu tempo para apresentar seu projeto. Estamos prontos para conhecer sua visão e conversar sobre como transformá-la em um site profissional.";w.appendChild(m);
+ var n=el("p","sub");n.style.fontSize="14px";n.textContent="Se você ainda não tocou em Enviar no WhatsApp, a mensagem não foi entregue. Use o botão abaixo para abrir a conversa de novo.";w.appendChild(n);
+ var r=el("div","row"),a=el("a","btn","Abrir o WhatsApp");a.href=waLink();a.target="_blank";a.rel="noopener noreferrer";
+ var h=el("button","btn ghost","Voltar ao início");h.type="button";h.onclick=function(){S=Object.assign({},DEF,{feat:[]});touched={};clr();render(-1)};
+ r.appendChild(a);r.appendChild(h);w.appendChild(r);v.appendChild(w)}
+
+var VIEWS=[step0,choice("type","Qual tipo de site você deseja?",false,1),choice("goal","Qual é o principal objetivo do seu site?",false,2),choice("feat","Quais funcionalidades você gostaria de incluir?",true,3),choice("style","Qual estilo visual você prefere?",false,4),step5,step6,step7];
+
+function render(dir){
+ if(S.step>0&&S.step<7&&!step0Valid())S.step=0;
+ var st=$("#stage");st.innerHTML="";
+ var v=el("section","view"+(dir<0?" back":""));st.appendChild(v);VIEWS[S.step](v);
+ var pr=$("#prog");pr.style.display=S.step===7?"none":"block";
+ var pct=Math.round((S.step+1)/(LAST+1)*100);
+ $("#pfill").style.width=pct+"%";$("#pbar").setAttribute("aria-valuenow",pct);
+ $("#plab").textContent="Etapa "+(S.step+1)+" de "+(LAST+1);
+ var h=$("h1,h2",v);if(h&&S.step>0)h.focus({preventScroll:true});
+ save()}
+document.addEventListener("visibilitychange",function(){if(document.visibilityState==="visible"&&S.pending&&S.step===6){S.pending=false;go(7)}});
+render(1);
+})();
+</script>
+</body>
+</html>
